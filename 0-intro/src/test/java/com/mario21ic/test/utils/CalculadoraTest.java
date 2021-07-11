@@ -4,8 +4,7 @@ import com.mario21ic.utils.Calculadora;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculadoraTest {
 
@@ -52,5 +51,12 @@ public class CalculadoraTest {
         double division = calc.dividir(4, 2);
         // assert
         assertEquals(2, division);
+
+        // Other asserts
+        assertNull(null);
+        assertNotNull(division);
+//        assertArrayEquals([1,2,3], [1,2,3]);
+        assertSame(Calculadora.class, calc.getClass());
+//        assertThrows();
     }
 }
