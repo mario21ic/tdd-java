@@ -1,6 +1,7 @@
 package com.mario21ic.test.escuela;
 
 import com.mario21ic.escuela.Nota;
+import com.mario21ic.escuela.Nota.Tipo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,9 @@ public class NotaTestFixture {
     Nota nota2=null;
     Nota nota3=null;
     Nota nota4=null;
+    Nota nota5=null;
+    Nota nota6=null;
+    Nota nota7=null;
 
     @BeforeEach
     public void setUp() {
@@ -21,6 +25,9 @@ public class NotaTestFixture {
         nota2 = new Nota(7, "lengua");
         nota3 = new Nota(9, "matematica");
         nota4 = new Nota(8, "lengua");
+        nota5 = new Nota(10, "lengua");
+        nota6 = new Nota(6, "lengua");
+        nota7 = new Nota(5.2, "lengua");
     }
 
     @Test
@@ -66,5 +73,31 @@ public class NotaTestFixture {
         assertThrows(RuntimeException.class, ()-> nota1.esMayor(nota3));
     }
 
+    @Test
+    void testNotaTipoBien() {
+        // arrange  from SetUp
+        // act
+        Tipo miTipoNota = nota7.getTipo();
+        // assert
+        assertEquals(Tipo.BIEN, miTipoNota);
+    }
+
+    @Test
+    void testNotaTipoNotable() {
+        // arrange  from SetUp
+        // act
+        Tipo miTipoNota = nota4.getTipo();
+        // assert
+        assertEquals(Tipo.NOTABLE, miTipoNota);
+    }
+
+    @Test
+    void testNotaTipoSobresaliente() {
+        // arrange  from SetUp
+        // act
+        Tipo miTipoNota = nota5.getTipo();
+        // assert
+        assertEquals(Tipo.SOBRESALIENTE, miTipoNota);
+    }
 
 }

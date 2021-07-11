@@ -6,12 +6,16 @@ public class Nota {
     private double valor;
     private String asignatura;
 
+    public enum Tipo {
+        MUYDEFICIENTE, INSUFICIENTE, BIEN, NOTABLE, SOBRESALIENTE
+    }
+
     public Nota() {
     }
 
     public Nota(double valor, String asignatura) {
-        this.valor = valor;
-        this.asignatura = asignatura;
+        this.setValor(valor);
+        this.setAsignatura(asignatura);
     }
 
     public double getValor() {
@@ -60,4 +64,17 @@ public class Nota {
         throw new RuntimeException("Las notas no son comparables por no coincidir asignatura");
     }
 
+    public Tipo getTipo() {
+        if (getValor() >= 0 && getValor() < 3) {
+            return Tipo.MUYDEFICIENTE;
+        } else if (getValor() >= 3 && getValor() < 5) {
+            return Tipo.INSUFICIENTE;
+        } else if (getValor() >= 5 && getValor() < 7) {
+            return Tipo.BIEN;
+        } else if (getValor() >= 7 && getValor() < 9) {
+            return Tipo.NOTABLE;
+        } else {
+            return Tipo.SOBRESALIENTE;
+        }
+    }
 }
