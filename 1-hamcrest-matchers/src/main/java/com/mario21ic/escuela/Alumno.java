@@ -53,6 +53,30 @@ public class Alumno {
         return deficientes;
     }
 
+    public Nota getMejorNota() {
+        double mejor = 0;
+        Nota mejorNota = null;
+        for (Nota nota:notas) {
+            if (nota.getValor() >= mejor) {
+                mejor = nota.getValor();
+                mejorNota = nota;
+            }
+        }
+        return mejorNota;
+    }
+
+    public Nota getPeorNota() {
+        double peor = 0;
+        Nota peorNota = null;
+        for (Nota nota : notas) {
+            if (nota.getValor() <= peor) {
+                peor = nota.getValor();
+                peorNota = nota;
+            }
+        }
+        return peorNota;
+    }
+
     public String getNombre() {
         return nombre;
     }
