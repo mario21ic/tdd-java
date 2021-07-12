@@ -67,7 +67,8 @@ public class Alumno {
                 mejorNota = nota;
             }
         }
-        return mejorNota;
+        return mejorNota; // linea correcta
+//        return null; // genera error
     }
 
     public Nota getPeorNota() {

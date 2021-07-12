@@ -23,6 +23,33 @@ public class Clase {
 
         return total/alumnos.size();
     }
+/*
+// Antes del refactor
+    public Nota getMejorNota() {
+        double mejor = 0;
+        Nota mejorNota = null;
+        for (Alumno alumno : alumnos) {
+            if (alumno.getMejorNota().getValor() >= mejor) {
+                mejor = alumno.getMejorNota().getValor();
+                mejorNota = alumno.getMejorNota();
+            }
+        }
+        return mejorNota;
+    }
+ */
+    // La mejor nota de toda la clase
+    public Nota getMejorNota() {
+        double mejor = 0;
+        Nota mejorNota = null;
+        for (Alumno alumno : alumnos) {
+            Nota nota = alumno.getMejorNota();
+            if (nota.getValor() >= mejor) {
+                mejor = nota.getValor();
+                mejorNota = nota;
+            }
+        }
+        return mejorNota;
+    }
 
     public Clase() {
     }

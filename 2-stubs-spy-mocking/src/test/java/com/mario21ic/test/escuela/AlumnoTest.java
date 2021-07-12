@@ -45,7 +45,8 @@ public class AlumnoTest {
         Alumno alumno1 = new Alumno("Juan", this.notas);
         alumno1.addNota(new Nota(4, "ingles"));
 
-        assertThat(alumno1.getNotas(), hasItem(new Nota(4, "ingles")));
+        assertThat(alumno1.getNotas(), hasItem(
+                new Nota(4, "ingles")));
     }
 
     @Test
@@ -53,21 +54,24 @@ public class AlumnoTest {
         Alumno alumno1 = new Alumno("Juan", notas);
         alumno1.removeNota(new Nota(5, "matematica"));
 
-        assertThat(alumno1.getNotas(), not(hasItem(new Nota(5, "matematica"))));
+        assertThat(alumno1.getNotas(), not(hasItem(
+                new Nota(5, "matematica"))));
     }
 
     @Test
     void testMejorNotaAlumno() {
         Alumno alumno1 = new Alumno("Juan", notas);
 
-        assertThat(alumno1.getMejorNota(), equalTo(new Nota(10, "fisica")));
+        assertThat(alumno1.getMejorNota(), equalTo(
+                new Nota(10, "fisica")));
     }
 
     @Test
     void testPeorNotaAlumno() {
         Alumno alumno1 = new Alumno("Juan", notas);
 
-        assertThat(alumno1.getPeorNota(), equalTo(new Nota(0, "informatica")));
+        assertThat(alumno1.getPeorNota(), equalTo(
+                new Nota(0, "informatica")));
     }
 
     @Test
