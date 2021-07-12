@@ -4,6 +4,7 @@ import com.mario21ic.escuela.Alumno;
 import com.mario21ic.escuela.Clase;
 import com.mario21ic.escuela.Nota;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,21 +44,13 @@ public class ClaseTest {
 
     @Test
     void testNotaMediaClase() {
-        // nota media 4
-        Nota nota1 = new Nota(3, "matematica");
-        Nota nota2 = new Nota(5, "lengua");
-        List<Nota> notas = new ArrayList<Nota>();
-        notas.add(nota1);
-        notas.add(nota2);
-        Alumno alumno1 = new Alumno("Juan", notas);
+        // tengo un test double es decir un objeto duplicado que va a ser
+        // un STUB, que implemento solo una parte de su funcionalidad
+        Alumno alumno1 = Mockito.mock(Alumno.class);
+        Mockito.when(alumno1.getNotaMedia()).thenReturn(6.2);
 
-        // nota media 5
-        Nota nota3 = new Nota(5, "matematica");
-        Nota nota4 = new Nota(5, "lengua");
-        List<Nota> notas2 = new ArrayList<Nota>();
-        notas2.add(nota3);
-        notas2.add(nota4);
-        Alumno alumno2 = new Alumno("Ana", notas2);
+        Alumno alumno2 = Mockito.mock(Alumno.class);
+        Mockito.when(alumno2.getNotaMedia()).thenReturn(7.1);
 
         List<Alumno> alumnos = new ArrayList<Alumno>();
         alumnos.add(alumno1);
@@ -65,7 +58,7 @@ public class ClaseTest {
         // nota media 5
         Clase c = new Clase("1A", alumnos);
 
-        assertThat(4.5, closeTo(c.getMedia(), 0.2));
+        assertThat(6.6, closeTo(c.getMedia(), 0.2));
     }
 
 }

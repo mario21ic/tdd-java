@@ -101,14 +101,14 @@ public class Alumno {
     public double getNotaMedia() {
         // que un grupo de pruebas unitarias falle,
         // es casi peor que no tener unit tests
-        // tipos de doubles:
-        // dummy -> objeto vacios
-        // stubs -> sustituye metodos concretos
-        // spy -> graba invocaciones
-        // mocks -> sustituye metodos y graba invocaciones
-        // fake -> simula
-        double total = 1;
-//        double total = 0;
+        // Tests DOUBLES types:
+        // DUMMY -> objeto vacios
+        // STUBS -> sustituye metodos concretos
+        // SPY -> delega y graba invocaciones
+        // MOCKS -> sustituye metodos y graba invocaciones
+        // FAKE -> simula
+//        double total = 1; // Generara error
+        double total = 0; // valor correcto
         for (Nota nota : notas) {
             total += nota.getValor();
         }
